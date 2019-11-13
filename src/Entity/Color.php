@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ColorRepository")
@@ -24,7 +25,7 @@ class Color
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\product", mappedBy="color")
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="color")
      */
     private $color_id;
 
