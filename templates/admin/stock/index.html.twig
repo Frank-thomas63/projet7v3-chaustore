@@ -1,0 +1,52 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Stocks{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+    <div class='container mt-4'>
+      <h1> Stocks </h1>
+      {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+      {% endfor %}
+
+    <div class="text-right">
+      <a href="{{ path('admin.stock.new')}} " class="btn btn-primary">Creates a new stock</a>
+    </div>
+    </div>
+    <div class='container mt-4'>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Size</th>
+            <th>Stock</th>
+            <th class="text-right">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+            {% for stock in stocks %}
+              <tr>
+                <td> {{ stock.product.name }} </td>
+                <td> {{ stock.size.name }} </td>
+                <td> {{ stock.name }} </td>
+                <td class="text-right">
+                  <a href="{{ path('admin.stock.edit', {id: stock.id}) }}" class="btn btn-secondary">Edit</a>
+                  <form method="post" action="{{ path('admin.stock.delete', {id: stock.id} ) }}" style="display: inline-block"
+                  onsubmit="return confirm('Do you really want to delete {{  stock.name }} ?' )">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ stock.id) }}">
+                    <button class="btn   btn-danger"> Delete </button>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+    </div>
+{% endblock %}
