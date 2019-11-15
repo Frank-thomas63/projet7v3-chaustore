@@ -4,11 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Controller\Admin\AdminProductController;
 use App\Entity\Product;
-use App\Entity\Color;
-use App\Entity\Stock;
 use App\Repository\ProductRepository;
-use App\Repository\ColorRepository;
-use App\Repository\StockRepository;
+
 use App\Form\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,9 +28,8 @@ class ProductController extends AbstractController
      private $em;
 
 
-    public function __construct(stockRepository $repositoryStocks, productRepository $repository, ObjectManager $em)
+    public function __construct( productRepository $repository, ObjectManager $em)
     {
-        $this->repositoryStocks =$repositoryStocks;
         $this->repository = $repository;
         $this->em = $em;
     }
@@ -47,11 +43,12 @@ class ProductController extends AbstractController
 
     public function index()
     {
-       $stocks= $this->repositoryStocks->findAll();
        $products = $this->repository->findAll();
-       return $this->render('admin/product/index.html.twig', ['products' => $products, 'stocks' => $stocks]);
+
+       return $this->render('admin/product/index.html.twig', ['products' => $products]);
     }
 
+  
 // Adds product
   /**
    * @Route("/admin/product/create", name="admin.product.new")

@@ -19,6 +19,19 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+    public function findOneByIdJoinedToStock($productId)
+  {
+      $entityManager = $this->getEntityManager();
+
+      $query = $entityManager->createQuery(
+          'SELECT p, s
+          FROM App\Entity\Product p
+          INNER JOIN p.stock c
+          WHERE p.id = :id'
+      )->setParameter('id', $productId);
+
+      return $query->getOneOrNullResult();
+  }
     // /**
     //  * @return Product[] Returns an array of Product objects
     //  */

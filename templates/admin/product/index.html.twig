@@ -33,24 +33,14 @@
                 <td> {{ product.name }} </td>
                 <td class="text-right">
                     <a href="{{ path('admin.product.edit', {id: product.id}) }}" class="btn btn-secondary">Edit</a>
-                {% for stock in stocks %}
-                  {% if stocks.name  > 0 %}
                   <form method="post" action="{{ path('admin.product.delete', {id: product.id} ) }}" style="display: inline-block"
                     onsubmit="return confirm('Do you really want to delete {{  product.name }} ?' )">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
-                    <button class="btn btn-secondary"> Delete </button>
-                    {% else %}
-                    <form method="post" action="{{ path('admin.product.delete', {id: product.id} ) }}" style="display: inline-block"
-                      onsubmit="return confirm('Do you really want to delete {{  product.name }} ?' )">
-                      <input type="hidden" name="_method" value="DELETE">
-                      <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
-                      <button class="btn btn-secondary"> Delete </button>
-                    {% endif %}
-                  </form>
+                      <button class="btn btn-danger"> Delete </button>
+                    </form>
                 </td>
               </tr>
-              {% endfor %}
             {% endfor %}
           </tbody>
       </table>
