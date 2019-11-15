@@ -44,6 +44,7 @@ class StockController extends AbstractController
     {
        $stocks = $this->repository->findAll();
        return $this->render('admin/stock/index.html.twig', ['stocks' => $stocks]);
+       
     }
 
 // Adds stock

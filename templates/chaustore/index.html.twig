@@ -9,7 +9,7 @@
     </head>
     <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-<a class="navbar-brand" href="{{ path('admin.home') }}">Chaustore - Administrator management</a>
+<a class="navbar-brand" href="{{ path('admin.home') }}">Chaustore- Simplon</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -17,20 +17,15 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
   <ul class="navbar-nav mr-auto">
 
-      <a class="nav-link" href={{ path('admin.product.index') }}>Product</a>
-      <a class="nav-link" href={{ path('admin.category.index') }}>Category</a>
-      <a class="nav-link" href={{ path('admin.brand.index') }}>Brand</a>
-      <a class="nav-link" href={{ path('admin.color.index') }}>Color</a>
-      <a class="nav-link" href={{ path('admin.size.index') }}>Size</a>
-      <a class="nav-link" href={{ path('admin.stock.index') }}>Stock</a>
   </ul>
   <ul class="navbar-nav">
     <li class="nav-item">
-        <a href="{{ path('chaustore') }}" class="btn btn-danger">Disconnection</a>
+        <a href="{{ path('login') }}" class="btn btn-success">Administrator</a>
     </li>
   </ul>
 </div>
 </nav>
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
