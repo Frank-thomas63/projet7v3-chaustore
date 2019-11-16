@@ -5,7 +5,6 @@ namespace App\Controller\Admin;
 use App\Controller\Admin\AdminProductController;
 use App\Entity\Product;
 use App\Repository\ProductRepository;
-
 use App\Form\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;

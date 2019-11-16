@@ -19,45 +19,18 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
-    public function findOneByIdJoinedToStock($productId)
-  {
-      $entityManager = $this->getEntityManager();
+    /**
+     * @Return Product[]
+     */
 
-      $query = $entityManager->createQuery(
-          'SELECT p, s
-          FROM App\Entity\Product p
-          INNER JOIN p.stock c
-          WHERE p.id = :id'
-      )->setParameter('id', $productId);
-
-      return $query->getOneOrNullResult();
-  }
-    // /**
-    //  * @return Product[] Returns an array of Product objects
-    //  */
-    /*
-    public function findByExampleField($value)
+// ici on gere l'affichage des chaussures
+    public function findAll(): array
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+                    ->getQuery()
+                    ->getResult();
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Product
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+    
+ 
+  
 }
