@@ -1,0 +1,24 @@
+{% extends 'chaustore/base.html.twig' %}
+{% block title %}Chaustore{% endblock %}
+
+{% block body %}
+  <div class="container mt-4" >
+    <h2> Sheo </h2>
+    <div class="row flex">
+      {% for product in products %}
+        <div class="col-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class"card-title">
+                <a href="#">{{ product.name }}</a>
+              </h5>
+              <p class="card-text"> {{ product.image}} </p>
+              <div class="text-primary">{{ product.price | number_format() }} €</div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% endblock %}
