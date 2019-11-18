@@ -15,8 +15,4 @@ return [
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     Symfony\Bundle\WebServerBundle\WebServerBundle::class => ['dev' => true],
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],
-<<<<<<< HEAD
-    FOS\UserBundle\FOSUserBundle::class => ['all' => true],
-=======
->>>>>>> cca26fbebe9b1d9f83057f158a81c72e2fe3ab60
 ];
